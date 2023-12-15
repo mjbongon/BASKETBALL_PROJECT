@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './Navbar';
+import Teams from './components/Teams';
+import Players from './components/Players';
+import Standings from './components/Standings';
+import Home from './components/Home';
 
 function App() {
+  let components
+  switch (window.location.pathname) {
+    case "/":
+      components = <Home />
+      break;
+  
+    case "/teams":
+      components = <Teams />
+      break;
+    case "/players":
+      components = <Players />
+      break;
+  
+    case "/standings":
+      components = <Standings />
+      break;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+    <Navbar />
+    <div className='container'>{components}</div>
+  </>
+  )
 }
 
 export default App;
