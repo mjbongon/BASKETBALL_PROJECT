@@ -4,7 +4,7 @@ import "./styles.css"
 export default function Navbar() {
   return (
     <nav className="nav">
-      <Link to="/" className="site-title">
+      <Link to="/Home" className="site-title">
         HOOPS101
       </Link>
       <ul>

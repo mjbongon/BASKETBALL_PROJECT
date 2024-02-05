@@ -45,11 +45,11 @@ const LoginSignup = () => {
   };
 
   return (
-    <div className="container">
+    <>
       {isLoggedIn ? (
         <Home />
       ) : (
-        <>
+        <div className="container">
           <div className="header">
             <div className="text">{action}</div>
             <div className="underline"></div>
@@ -114,10 +114,10 @@ const LoginSignup = () => {
               Log in
             </div>
           </div>
-        </>
+        </div>
       )}
-    </div>
-  );
+    </>
+  );  
 };
 
 export default LoginSignup;
