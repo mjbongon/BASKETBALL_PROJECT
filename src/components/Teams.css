@@ -1,24 +1,90 @@
 /* Teams.css */
+body{
+  background-color: black;
+}
+
+.all-teams{
+  text-align: center;
+  background-color: aliceblue;
+}
+/* Style for the container */
+.teams-container {
+  text-align: center; /* Center align the content */
+}
+
+/* Style for each division */
 .division {
-    margin-bottom: 20px;
-  }
-  
-  .teams {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .team {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    text-align: center;
-  }
-  
-  .team img {
-    max-width: 100px;
-    max-height: 50px;
-  }
-  
-  /* Add more styles as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+  background-color: aliceblue;
+}
+
+/* Style for division title */
+.division-title {
+  font-weight: bold;
+}
+
+.teams {
+  align-items: flex-start;
+  font-size: large;
+}
+/* Style for individual team */
+.team {
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.team img {
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
+
+/* Style for the container */
+.columns-container {
+  display: flex;
+  justify-content: space-around; /* Distribute columns evenly */
+}
+
+/* Style for each column */
+.column {
+  flex: 1; /* Each column takes equal space */
+}
+
+/* Add other styles as needed */
+
+/* Teams.css */
+
+/* Style for the container */
+.division-container {
+  display: flex;
+  justify-content: space-between; /* Separate into two columns */
+}
+
+/* Style for each row */
+.row {
+  display: flex;
+  justify-content: space-between; /* Distribute divisions evenly */
+  width: 100%; /* Ensure row takes full width */
+  margin-bottom: 20px; /* Add some space between rows */
+}
+
+/* Style for each division */
+.division {
+  width: 30%; /* Adjust as needed */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: center; /* Center align items horizontally */
+}
+
+.centered-content {
+  text-align: center;
+}
+
+/* Style for the long line below "ALL TEAMS" */
+.divider {
+  border-top: 1px solid black; /* Add a solid black border */
+  width: 100%; /* Set the width of the divider */
+  margin: 20px auto; /* Center the divider horizontally with some top and bottom margin */
+}

@@ -41,11 +41,8 @@ body {
 
 .nav li:hover {
     background-color: #777;
-
-    
 }
 
 .nav li:active {
     background-color: #555;
-
 }

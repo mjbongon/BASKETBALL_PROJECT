@@ -1,4 +1,41 @@
-.home-container {
+/* Home.css */
+.upcoming-games-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row; /* Change to row layout */
+    align-items: flex-start; /* Align items to the start */
+    justify-content: center; /* Center items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
     background-color: white;
 }
-  
+
+.game {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center;
+    justify-content: center;
+    width: 120px; /* Set the width of each game box */
+    border-right: 1px solid lightgrey; /* Add right border to act as divider */
+    padding: 10px; /* Add padding */
+}
+
+.team-logo {
+    width: 45px; /* Make the logo bigger */
+    height: 45px;
+    margin-bottom: 5px; /* Add margin below logo */
+}
+
+.vs {
+    font-size: 1rem;
+    margin: 5px 0; /* Add some margin top and bottom */
+}
+
+.team-abbr {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Remove margin and padding from the last game box */
+.game:last-child {
+    border-right: none; /* Remove border from the last game box */
+}

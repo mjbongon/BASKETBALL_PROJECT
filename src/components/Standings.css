@@ -1,0 +1,74 @@
+/* Standings.css */
+
+/* Style for the main title */
+.standings-title {
+    text-align: center;
+    background-color: aliceblue;
+  }
+  
+  /* Style for the divider between conferences */
+  .standings-divider {
+    border-top: 1px solid black;
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  /* Style for the container holding both conferences */
+  .conference-container {
+    display: flex;
+    flex-direction: column; /* Change to column */
+    align-items: center; /* Center align content horizontally */
+  }
+  
+  /* Style for each conference */
+  .conference {
+    flex: 1;
+    width: 80%; /* Adjust width as needed */
+    margin-bottom: 20px; /* Add space between conferences */
+    background-color: aliceblue;
+  }
+  
+  /* Style for the title of each conference */
+  .conference-title {
+    text-align: center;
+  }
+  
+
+    /* Style for the table */
+  .standings-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid black; /* Add border around the table */
+  }
+  
+  /* Style for table header */
+  .standings-table th {
+    border-bottom: 2px solid black; /* Add border at the bottom of table headers */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Style for table data */
+  .standings-table td {
+    border-bottom: 2px solid black; /* Add border at the bottom of table data cells */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Style for the last row */
+  .standings-table tr:last-child td {
+    border-bottom: none; /* Remove border at the bottom of the last row */
+  }
+  
+  /* Style for the first row */
+  .standings-table tr:first-child th {
+    border-top: none; /* Remove border at the top of the first row */
+  }
+
+  /* Style for team logos */
+  .team-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+  
