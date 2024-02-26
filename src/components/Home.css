@@ -1,6 +1,7 @@
 /* Home.css */
 .upcoming-games-container {
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px; /* Add margin-bottom to create space */
     display: flex;
     flex-direction: row; /* Change to row layout */
     align-items: flex-start; /* Align items to the start */
@@ -9,19 +10,23 @@
     background-color: white;
 }
 
+/* Rest of your CSS styles */
+
+
 .game {
     display: flex;
     flex-direction: column; /* Change to column layout */
     align-items: center;
     justify-content: center;
-    width: 120px; /* Set the width of each game box */
+    height: 120px;
+    width: 95px; /* Set the width of each game box */
     border-right: 1px solid lightgrey; /* Add right border to act as divider */
     padding: 10px; /* Add padding */
 }
 
 .team-logo {
-    width: 45px; /* Make the logo bigger */
-    height: 45px;
+    width: 30px; /* Make the logo bigger */
+    height: 35px;
     margin-bottom: 5px; /* Add margin below logo */
 }
 
@@ -38,4 +43,67 @@
 /* Remove margin and padding from the last game box */
 .game:last-child {
     border-right: none; /* Remove border from the last game box */
+}
+
+/* Home.css */
+.news-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 60px;
+    max-width: 70%; /* Limit the width of the news container */
+    margin: auto; /* Center the news container */
+}
+
+.big-news {
+    text-align: center;
+    width: 70%; /* Set the width of the big news section */
+    margin: 0 auto; /* Center the big news section */
+}
+
+.big-news-image {
+    max-width: 100%; /* Ensure image fits within container */
+    width: 90%;
+}
+
+.big-news-header {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.big-news-description {
+    margin-top: 10px;
+}
+
+.latest-news {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.news-column {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px; /* Adjust margin as needed */
+}
+
+.small-news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px; /* Adjust margin as needed */
+    max-width:fit-content
+}
+
+
+.small-news-image {
+    max-width: 50%; /* Ensure image fits within container */
+}
+
+.small-news-description {
+    align-items: center;
 }
