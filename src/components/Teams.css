@@ -1,60 +1,4 @@
 /* Teams.css */
-body{
-  background-color: black;
-}
-
-.all-teams{
-  text-align: center;
-  background-color: aliceblue;
-}
-/* Style for the container */
-.teams-container {
-  text-align: center; /* Center align the content */
-}
-
-/* Style for each division */
-.division {
-  margin-bottom: 20px; /* Adjust as needed */
-  background-color: aliceblue;
-}
-
-/* Style for division title */
-.division-title {
-  font-weight: bold;
-}
-
-.teams {
-  align-items: flex-start;
-  font-size: large;
-}
-/* Style for individual team */
-.team {
-  display: flex; /* Use flexbox layout */
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Center align items horizontally */
-  margin-bottom: 20px; /* Adjust as needed */
-}
-
-.team img {
-  width: 50px; /* Adjust as needed */
-  height: 50px; /* Adjust as needed */
-  margin-right: 10px; /* Adjust as needed */
-}
-
-/* Style for the container */
-.columns-container {
-  display: flex;
-  justify-content: space-around; /* Distribute columns evenly */
-}
-
-/* Style for each column */
-.column {
-  flex: 1; /* Each column takes equal space */
-}
-
-/* Add other styles as needed */
-
-/* Teams.css */
 
 /* Style for the container */
 .division-container {
@@ -76,10 +20,56 @@ body{
   display: flex;
   flex-direction: column; /* Align items vertically */
   align-items: center; /* Center align items horizontally */
+  background-color: white; /* Set background color */
+  padding: 20px; /* Add padding */
+  border-radius: 10px; /* Add border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  
 }
 
-.centered-content {
-  text-align: center;
+/* Center align division title */
+.division-title {
+  font-weight: bold;
+}
+
+/* Style for individual team */
+.team {
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  margin-bottom: 20px; /* Adjust as needed */
+  cursor: pointer; /* Change cursor to pointer */
+  text-decoration: none;
+}
+
+.team img {
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
+
+/* Style for team name */
+.team-name {
+  font-weight: bold; /* Make team name bold */
+  color: black; /* Change team name color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+/* Change team name color on hover */
+.team-name:hover {
+  color: lightgray; /* Change color on hover */
+}
+
+/* Remove blue line */
+.team-name:hover {
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Style for the container */
+.columns-container {
+  display: flex;
+  justify-content: space-around; /* Distribute columns evenly */
 }
 
 /* Style for the long line below "ALL TEAMS" */
@@ -87,4 +77,14 @@ body{
   border-top: 1px solid black; /* Add a solid black border */
   width: 100%; /* Set the width of the divider */
   margin: 20px auto; /* Center the divider horizontally with some top and bottom margin */
+}
+
+/* Style for "All Teams" header */
+.all-teams {
+  text-align: center; /* Center align */
+  background-color: aliceblue; /* Set background color */
+  padding: 10px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  margin-bottom: 20px; /* Add space at the bottom */
 }

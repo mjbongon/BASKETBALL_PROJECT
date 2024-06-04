@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { auth } from '../../firebase/firebaseConfig'; // Ensure this path is correct
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import './LoginSignup.css';
 import Home from '../Home'; // Import your Home component
+import Navbar from '../../Navbar'; // Import your Navbar component
 
 import user_icon from '../Assets/person.png';
 import email_icon from '../Assets/email.png';
@@ -12,35 +15,33 @@ const LoginSignup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [showLostPassword, setShowLostPassword] = useState(action === 'Log in');
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    setShowLostPassword(action === 'Log in');
+    setError('');
   }, [action]);
 
-  const handleLoginSignup = () => {
-    if (action === 'Sign Up') {
-      // Check if both name and email are entered before proceeding
-      if (name && email && password) {
-        // Perform your signup logic here
-        // For simplicity, let's assume signup is successful
-
-        // Update the login state to true
-        setLoggedIn(true);
+  const handleLoginSignup = async () => {
+    setError('');
+    try {
+      if (action === 'Sign Up') {
+        if (name && email && password) {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          await updateProfile(userCredential.user, { displayName: name });
+          setLoggedIn(true);
+        } else {
+          setError('Please enter name, email, and password.');
+        }
       } else {
-        alert('Please enter name, email, and password.');
+        if (email && password) {
+          await signInWithEmailAndPassword(auth, email, password);
+          setLoggedIn(true);
+        } else {
+          setError('Please enter both email and password.');
+        }
       }
-    } else {
-      // If Login is clicked, update the state
-      if (email && password) {
-        // Perform your login logic here
-        // For simplicity, let's assume login is successful
-
-        // Update the login state to true
-        setLoggedIn(true);
-      } else {
-        alert('Please enter both email and password.');
-      }
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -49,69 +50,71 @@ const LoginSignup = () => {
       {isLoggedIn ? (
         <Home />
       ) : (
-        <div className="container">
-          <div className="header">
-            <div className="text">{action}</div>
-            <div className="underline"></div>
-          </div>
-          <div className="inputs">
-            {action === 'Sign Up' && (
-              <div className="input">
-                <img src={user_icon} alt="" />
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
+        <div className="login-signup-container">
+          <Navbar showLinks={false} isLoggedIn={isLoggedIn} />
+          <div className="content">
+            <div className="left-side">
+              <h1>Welcome to HOOPS101</h1>
+              <p>Your ultimate basketball community platform.</p>
+            </div>
+            <div className="right-side">
+              <div className="form-container">
+                <div className="header">
+                  <div className="text">{action}</div>
+                  <div className="underline"></div>
+                </div>
+                <div className="inputs">
+                  {action === 'Sign Up' && (
+                    <div className="input">
+                      <img src={user_icon} alt="User icon" />
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                  )}
+                  <div className="input">
+                    <img src={email_icon} alt="Email icon" />
+                    <input
+                      type="email"
+                      placeholder="Email ID"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="input">
+                    <img src={password_icon} alt="Password icon" />
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  {error && <div className="error-message">{error}</div>}
+                </div>
+                
+                <div className="submit-container">
+                  <div
+                    className="submit"
+                    onClick={() => handleLoginSignup()}
+                  >
+                    Continue
+                  </div>
+                  <br></br>
+                  {action === 'Log in' ? (
+                    <div className="switch-action">
+                      Don't have an account yet? <span onClick={() => setAction('Sign Up')}>Register here</span>
+                    </div>
+                  ) : (
+                    <div className="switch-action">
+                      Already have an account? <span onClick={() => setAction('Log in')}>Log in here</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
-            <div className="input">
-              <img src={email_icon} alt="" />
-              <input
-                type="email"
-                placeholder="Email ID"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="input">
-              <img src={password_icon} alt="" />
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            {showLostPassword && (
-              <div className="forgot-password">
-                <span>Lost Password? Click here</span>
-              </div>
-            )}
-          </div>
-          <div className="submit-container">
-            <div
-              className={action === 'Log in' ? 'submit right' : 'submit gray right'}
-              onClick={() => handleLoginSignup()}
-            >
-              Continue
-            </div>
-            <div
-              className={action === 'Login' ? 'submit gray' : 'submit'}
-              onClick={() => {
-                setAction('Sign Up');
-              }}
-            >
-              Sign up
-            </div>
-            <div
-              className={action === 'Sign Up' ? 'submit gray' : 'submit'}
-              onClick={() => {
-                setAction('Login');
-              }}
-            >
-              Log in
             </div>
           </div>
         </div>
@@ -120,4 +123,4 @@ const LoginSignup = () => {
   );  
 };
 
-export default LoginSignup;
+export default LoginSignup; 
