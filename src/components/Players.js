@@ -309,7 +309,7 @@ const Players = () => {
         {
             name: 'Dallas Mavericks',
             logoUrl: 'https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg',
-            rosterUrl: 'https://www.nba.com/mavericks/roster',
+            rosterUrl: 'https://www.mavs.com/team/roster/',
             players: [
                 { position: 'PG', name: 'Kyrie Irving' },
                 { position: 'SG', name: 'Luka Dončić' },

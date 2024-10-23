@@ -84,10 +84,10 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             <div className="home-container">
-            <div className="upcoming-games-container">
+                <div className="upcoming-games-container">
                     <div className="nav-button left" onClick={handlePrevPage}>{"<"}</div>
                     {currentGames.map((game, index) => (
                         <div key={index} className="game">
@@ -100,14 +100,14 @@ const Home = () => {
                             </div>
                             <div className="game-column">
                                 <span className="team-abbr">{game.awayTeam}</span>
-                                <img src={game.awayLogoUrl} alt="Away Team Logo" className="team-logo" />   
+                                <img src={game.awayLogoUrl} alt="Away Team Logo" className="team-logo" />
                             </div>
                         </div>
                     ))}
                     <div className="nav-button right" onClick={handleNextPage}>{">"}</div>
                 </div>
-                <br></br>
-                <br></br>
+                <br />
+                <br />
 
                 <div className="news-container">
                     <div className="big-news">
@@ -140,7 +140,23 @@ const Home = () => {
                                 <h4 className="small-news-description">Minnesota dethrones the champion and is a finalist in the West: The enormous comeback of the Timberwolves in Denver</h4>
                             </div>
                         </div>
+
+                        
+                        <h1 className="big-news-header">NBA Latest Videos</h1>
+                        <div className="video-container">
+                            <iframe 
+                                width="100%" 
+                                height="100%" 
+                                src="https://www.youtube.com/embed/KiTs0sZ6WeE" 
+                                title="YouTube video player" 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+
                     </div>
+
                     <div className="latest-news">
                         <h2 className="latest-news-header">LATEST NBA NEWS</h2>
                         <ul className="latest-news-list">
@@ -153,29 +169,29 @@ const Home = () => {
                             <li>The order of the 2024 NBA Draft: All the picks and selections from the two rounds</li>
                         </ul>
                         
-                        <br></br>
+                        <br />
                         <a href="https://www.sportingnews.com/es/nba" target="_blank" rel="noopener noreferrer" className="more-news-button">More NBA News</a>
 
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
 
-                            <div className="small-news">
-                                <img src="https://shorturl.at/HxiqL" alt="Small News 1" className="small-news-image" />
-                                <h4 className="small-news-description">Boston Celtics vs. Dallas Mavericks: Game schedule, data and analysis of the 2024 NBA Finals</h4>
-                            </div>
-                            <div className="small-news">
-                                <img src="https://shorturl.at/j12Ye" alt="Small News 2" className="small-news-image" />
-                                <h4 className="small-news-description">Kyrie Irving's story with the Boston Celtics: From savior to villain in record time</h4>
-                            </div>
-                            <br></br>
-                            <div className="small-news">
-                                <img src="https://shorturl.at/LJ470" alt="Small News 3" className="small-news-image" />
-                                <h4 className="small-news-description">Boston Celtics, on the path of persistence: Going for their first NBA title in 16 years</h4>
-                            </div>
+                        <div className="small-news">
+                            <img src="https://shorturl.at/HxiqL" alt="Small News 1" className="small-news-image" />
+                            <h4 className="small-news-description">Boston Celtics vs. Dallas Mavericks: Game schedule, data and analysis of the 2024 NBA Finals</h4>
+                        </div>
+                        <div className="small-news">
+                            <img src="https://shorturl.at/j12Ye" alt="Small News 2" className="small-news-image" />
+                            <h4 className="small-news-description">Kyrie Irving's story with the Boston Celtics: From savior to villain in record time</h4>
+                        </div>
+                        <br />
+                        <div className="small-news">
+                            <img src="https://shorturl.at/LJ470" alt="Small News 3" className="small-news-image" />
+                            <h4 className="small-news-description">Boston Celtics, on the path of persistence: Going for their first NBA title in 16 years</h4>
+                        </div>
                     </div>
                 </div>
 

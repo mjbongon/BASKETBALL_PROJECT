@@ -2,15 +2,16 @@
 .back-to-top {
     position: fixed;
     bottom: 50px; /* Espacio suficiente para evitar que se oculte detrás del footer */
-    right: 30px;
+    right: 55px;
     z-index: 1000;
     cursor: pointer;
     transition: opacity 0.4s ease-in-out;
+    width: 55px;
   }
   
   .arrow-up {
-    background-color: #000;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     padding: 10px;
     border-radius: 50%;
     display: flex;
