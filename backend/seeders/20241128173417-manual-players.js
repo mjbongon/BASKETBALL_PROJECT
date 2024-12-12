@@ -1562,8 +1562,6 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-
-      // Continue with other teams following the same pattern...
       
     ]);
   },
