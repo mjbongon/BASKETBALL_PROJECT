@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "./styles.css";
 
 export default function Navbar({ showLinks = true, isLoggedIn }) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (searchQuery.trim() !== "") {
+      console.log("Searching for:", searchQuery);
+      // Add your search functionality here
+    }
+  };
+
   return (
     <nav className="nav">
       {!isLoggedIn ? (
@@ -13,13 +23,30 @@ export default function Navbar({ showLinks = true, isLoggedIn }) {
         </Link>
       )}
       {showLinks && (
-        <ul>
-          <CustomLink to="/Home">Home</CustomLink>
-          <CustomLink to="/Players">Players</CustomLink>
-          <CustomLink to="/Teams">Teams</CustomLink>
-          <CustomLink to="/Standings">Standings</CustomLink>
-          <CustomLink to="/Profile">Profile</CustomLink>
-        </ul>
+        <>
+          <ul className="nav-links">
+            <CustomLink to="/Home">Home</CustomLink>
+            <CustomLink to="/Players">Players</CustomLink>
+            <CustomLink to="/Teams">Teams</CustomLink>
+          </ul>
+          <div className="nav-right">
+            <form className="search-bar" onSubmit={handleSearch}>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+              <button type="submit" className="search-button">
+                🔍
+              </button>
+            </form>
+            <Link to="/Profile" className="profile-icon">
+              👤
+            </Link>
+          </div>
+        </>
       )}
     </nav>
   );

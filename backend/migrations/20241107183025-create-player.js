@@ -9,6 +9,7 @@ module.exports = {
       },
       first_name: { type: Sequelize.STRING, allowNull: false },
       last_name: { type: Sequelize.STRING, allowNull: false },
+      team: { type: Sequelize.STRING, allowNull: false },
       position: { type: Sequelize.STRING, allowNull: true },
       height: { type: Sequelize.FLOAT, allowNull: true }, // Adding height
       weight: { type: Sequelize.FLOAT, allowNull: true }, // Adding weight

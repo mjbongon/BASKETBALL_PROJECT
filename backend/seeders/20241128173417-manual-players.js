@@ -346,7 +346,8 @@ module.exports = {
         team: 'Milwaukee Bucks',
         createdAt: new Date(),
         updatedAt: new Date(),
-     
+      },
+      {
         first_name: 'Giannis',
         last_name: 'Antetokounmpo',
         position: 'Power Forward',
