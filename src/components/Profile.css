@@ -4,16 +4,17 @@
   justify-content: center;
   align-items: center;
   height: calc(100vh - 60px); /* Adjust for the height of the navbar */
-  width: auto;
-  background-color: #f8f9fa; /* Light background for contrast */
+  width: 100%;
+  background-color: #000; /* Change to black */
+  padding: 20px;
 }
 
 /* Profile card styling */
 .profile-box {
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px; /* Slightly rounded corners for a softer look */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   max-width: 400px;
   width: 100%;
   text-align: center;
@@ -27,23 +28,62 @@
   margin-bottom: 20px;
 }
 
+/* Profile icon styling */
+.profile-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 40px;  /* Adjusted size for the default icon */
+  color: #6c757d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer; /* Makes the profile icon clickable */
+}
+
+/* Add a hover effect to profile icon */
+.profile-icon:hover {
+  background-color: #d6d8db;
+}
+
+/* Profile avatar styling (if the user uploads an avatar) */
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff; /* Border for avatar */
+}
+
 /* User info styling */
 .profile-info {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-size: 16px;
   color: #555;
+  text-align: left; /* Align the text to the left */
+}
+
+/* User info text styling */
+.profile-info-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Button styling */
 button {
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  width: 100%; /* Full-width button */
 }
 
 button:hover {
@@ -75,7 +115,7 @@ button:hover {
 
 /* Input fields */
 .password-fields input {
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
@@ -87,43 +127,111 @@ button:hover {
   border-color: #007bff;
 }
 
-/* Profile picture or icon styling */
-.profile-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e9ecef;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 15px auto;
-  border-radius: 50%;
-  font-size: 36px;
-  color: #6c757d;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Add margin to the change password button for gap */
+.change-password button {
+  margin-top: 20px; /* Adds space between input fields and the change password button */
 }
 
-.profile-icon:hover {
-  background-color: #d6d8db;
-}
-
-.profile-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #007bff;
-}
-
-.button-group {
-  display: flex;
-  gap: 15px;
-}
-
+/* Logout button styling */
 .logout-button {
   background-color: #dc3545;
-  margin-left: 0;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 20px; /* Adds space between change password and logout button */
 }
 
 .logout-button:hover {
+  background-color: #c82333;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Photo upload modal */
+.photo-change-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.photo-change-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.photo-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.photo-options button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.photo-options button:hover {
+  background-color: #0056b3;
+}
+
+/* Image preview styling */
+.image-preview {
+  margin-top: 10px;
+}
+
+.preview-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Upload button styling in the modal */
+.upload-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.upload-button:hover {
+  background-color: #0056b3;
+}
+
+/* Modal close button */
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
   background-color: #c82333;
 }

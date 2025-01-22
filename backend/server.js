@@ -1,32 +1,43 @@
 const express = require('express');
-const path = require('path');
-const { Player } = require('./models'); // Adjust the path if needed
+const mysql = require('mysql2');
+const cors = require('cors');
+ 
+// Crear el servidor
 const app = express();
-
-// Middleware (for parsing JSON)
+app.use(cors());  // Permitir solicitudes desde el frontend
 app.use(express.json());
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../build')));
-
-// API endpoint for players
-app.get('/api/players', async (req, res) => {
-  try {
-    const players = await Player.findAll(); // Fetch all players from the database
-    res.json(players); // Send the players as JSON response
-  } catch (error) {
-    console.error('Error fetching players:', error);
-    res.status(500).json({ error: 'Failed to fetch players' });
-  }
+ 
+// Configurar la conexión a la base de datos MySQL
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',  // Cambia 'root' si tienes otro usuario configurado
+    password: 'root',  // Coloca tu contraseña de MySQL
+    port: '3306', 
+    database: 'escuela'
 });
-
-// Catch-all handler to serve the React app for other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+ 
+// Conectar a la base de datos
+db.connect(err => {
+    if (err) {
+        console.error('Error conectando a la base de datos:', err);
+        return;
+    }
+    console.log('Conectado a la base de datos MySQL');
 });
-
-// Start the server
-const PORT = process.env.PORT || 3000;
+ 
+// Endpoint para obtener estudiantes
+app.get('/api/estudiantes', (req, res) => {
+    const query = 'SELECT * FROM estudiantes';
+    db.query(query, (err, results) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.json(results);
+    });
+});
+ 
+// Iniciar el servidor
+const PORT = 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
