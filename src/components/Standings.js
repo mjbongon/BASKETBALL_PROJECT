@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Navbar';
 import './Standings.css';
 import BackToTopButton from './BackToTopButton';
+import { Link } from 'react-router-dom'; // Import Link for routing
 
 
 const Standings = () => {
@@ -67,8 +68,10 @@ const Standings = () => {
                 <tr key={team.rank}>
                   <td>{team.rank}</td>
                   <td>
-                    <img src={team.logoUrl} alt={team.name} className="team-logo" />
-                    {team.name}
+                    <Link to={`/teams/${team.name.replace(/\s+/g, '-').toLowerCase()}`}>
+                      <img src={team.logoUrl} alt={team.name} className="team-logo" />
+                      {team.name}
+                    </Link>
                   </td>
                   <td>{team.wins}</td>
                   <td>{team.losses}</td>
@@ -100,8 +103,10 @@ const Standings = () => {
                 <tr key={team.rank}>
                   <td>{team.rank}</td>
                   <td>
-                    <img src={team.logoUrl} alt={team.name} className="team-logo" />
-                    {team.name}
+                    <Link to={`/teams/${team.name.replace(/\s+/g, '-').toLowerCase()}`}>
+                      <img src={team.logoUrl} alt={team.name} className="team-logo" />
+                      {team.name}
+                    </Link>
                   </td>
                   <td>{team.wins}</td>
                   <td>{team.losses}</td>

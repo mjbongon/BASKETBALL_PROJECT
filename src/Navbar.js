@@ -1,36 +1,61 @@
 import React, { useState, useEffect } from "react";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useNavigate, useMatch } from "react-router-dom"; // Add useResolvedPath and useMatch
 import "./styles.css";
 
-export default function Navbar({ showLinks = true, isLoggedIn }) {
+export default function Navbar({ showLinks = true, isLoggedIn, setSearchQuery }) {
   console.log("Navbar is rendering");
-  console.log(isLoggedIn); // Log to verify if isLoggedIn is true
+  console.log(isLoggedIn);
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [profilePhoto, setProfilePhoto] = useState(null); // State to store the profile photo
+  const [searchQuery, setLocalSearchQuery] = useState(""); // Local state for search input
+  const [profilePhoto, setProfilePhoto] = useState(null); // Profile photo state
+  const navigate = useNavigate(); // To programmatically navigate to team/player pages
 
   useEffect(() => {
-    // Fetch the profile photo from localStorage if it exists
-    const storedPhoto = localStorage.getItem("profilePhoto");
+    // Fetch profile photo from localStorage if it exists
+    const storedPhoto = localStorage.getItem('profilePhoto');
     if (storedPhoto) {
       setProfilePhoto(storedPhoto);
     }
-  }, []); // Only run this once when the component is mounted
+  }, []);
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (searchQuery.trim() !== "") {
-      console.log("Searching for:", searchQuery);
+    // Normalize the search query to lower case for easier matching
+    const query = searchQuery.toLowerCase();
+
+    // Check if the query matches a team or player and navigate accordingly
+    if (checkIfTeam(query)) {
+        // If it's a team (team name or city), navigate to the team's page
+        navigate(`/Teams/${query}`);
+    } else {
+        // If it's a player (first or last name), navigate to the player's page
+        navigate(`/Players/${query}`);
     }
+  };
+
+  const checkIfTeam = (query) => {
+    // List of team data (you can fetch this from an API if necessary)
+    const teams = [
+        { name: 'Boston Celtics', city: 'Boston' },
+        { name: 'Atlanta Hawks', city: 'Atlanta' },
+        { name: 'Los Angeles Lakers', city: 'Los Angeles' },
+        { name: 'Miami Heat', city: 'Miami' },
+        { name: 'Chicago Bulls', city: 'Chicago' },
+        // Add more teams here...
+    ];
+
+    // Check if the query matches any part of the team name or city
+    return teams.some((team) => {
+        const teamNameMatch = team.name.toLowerCase().includes(query);
+        const teamCityMatch = team.city.toLowerCase().includes(query);
+        return teamNameMatch || teamCityMatch;
+    });
   };
 
   return (
     <nav className="nav">
-      {/* Render the website name as a clickable link when logged in, otherwise just plain text */}
       {isLoggedIn ? (
-        <Link to="/Home" className="site-title">
-          HOOPS101
-        </Link>
+        <Link to="/Home" className="site-title">HOOPS101</Link>
       ) : (
         <div className="site-title">HOOPS101</div>
       )}
@@ -49,21 +74,14 @@ export default function Navbar({ showLinks = true, isLoggedIn }) {
                 type="text"
                 placeholder="Search..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => setLocalSearchQuery(e.target.value)} // Update local search state
                 className="search-input"
               />
-              <button type="submit" className="search-button">
-                🔍
-              </button>
+              <button type="submit" className="search-button">🔍</button>
             </form>
-            {/* Profile icon in Navbar */}
             <Link to="/Profile" className="profile-icon">
               {profilePhoto ? (
-                <img
-                  src={profilePhoto}
-                  alt="Profile Avatar"
-                  className="navbar-profile-avatar"
-                />
+                <img src={profilePhoto} alt="Profile Avatar" className="navbar-profile-avatar" />
               ) : (
                 <span className="profile-icon-text">👤</span> // Default icon
               )}
@@ -76,14 +94,10 @@ export default function Navbar({ showLinks = true, isLoggedIn }) {
 }
 
 function CustomLink({ to, children, ...props }) {
-  const resolvedPath = useResolvedPath(to);
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
-
+  const isActive = useMatch({ path: to, end: true });
   return (
-    <li className={isActive ? "active" : ""}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
+    <li className={isActive ? 'active' : ''}>
+      <Link to={to} {...props}>{children}</Link>
     </li>
   );
 }

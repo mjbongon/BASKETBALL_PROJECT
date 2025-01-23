@@ -57,3 +57,20 @@
 .footer-content a:hover {
   text-decoration: underline;
 }
+
+.team-detail {
+  color: white;  /* White text */
+  background-color: black;  /* Keep the black background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* App.css */
+.player-detail {
+  color: white;  /* White text */
+  background-color: black;  /* Keep the black background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

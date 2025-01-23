@@ -132,8 +132,8 @@ const Home = () => {
                                 <h4 className="small-news-description">Mac McClung won the 2024 NBA All-Star Dunk Contest</h4>
                             </div>
                             <div className="small-news">
-                                <img src="https://shorturl.at/ybfbD" alt="Small News 3" className="small-news-image" />
-                                <h4 className="small-news-description">The special reason why Luka Doncic uses number 77: his number in Dallas Mavericks</h4>
+                                <img src="https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2023-11/Bradley%20Beal%20111723.jpeg?h=920929c4&itok=cnnEIXBH" alt="Small News 3" className="small-news-image" />
+                                <h4 className="small-news-description">Phoenix finds possible landing spot for Bradley Beal, paving way for Jimmy Butler trade</h4>
                             </div>
                             <div className="small-news">
                                 <img src="https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2024-05/Anthony%20Edwards%20Denver%20Nuggets%20vs.%20Minnesota%20Timberwolves%20051924.png?h=920929c4&itok=xvcW1WME" alt="Small News 4" className="small-news-image" />
@@ -180,17 +180,19 @@ const Home = () => {
                         <br />
 
                         <div className="small-news">
-                            <img src="https://shorturl.at/HxiqL" alt="Small News 1" className="small-news-image" />
-                            <h4 className="small-news-description">Boston Celtics vs. Dallas Mavericks: Game schedule, data and analysis of the 2024 NBA Finals</h4>
+                            <img src="https://ng-sportingnews.com/s3/files/styles/crop_style_16_9_desktop/s3/2025-01/Victor%20Wembanyama%20Devin%20Vassell%20San%20Antonio%20Spurs.png?h=920929c4&itok=xJHGgfcD" alt="Small News 1" className="small-news-image" />
+                            <h4 className="small-news-description">San Antonio shows in Paris that he has already found a sidekick for Wembanyama</h4>
                         </div>
                         <div className="small-news">
-                            <img src="https://shorturl.at/j12Ye" alt="Small News 2" className="small-news-image" />
-                            <h4 className="small-news-description">Kyrie Irving's story with the Boston Celtics: From savior to villain in record time</h4>
+                            <img src="https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2025-01/Stephen%20Curry%20and%20Nikola%20Vucevic%20012325.jpeg?h=920929c4&itok=IHUk6cbB" alt="Small News 2" className="small-news-image" />
+                            <h4 className="small-news-description">Stephen Curry and Steve Kerr hint at how Nikola Vucevic could fit into the Warriors
+                            </h4>
                         </div>
                         <br />
                         <div className="small-news">
-                            <img src="https://shorturl.at/LJ470" alt="Small News 3" className="small-news-image" />
-                            <h4 className="small-news-description">Boston Celtics, on the path of persistence: Going for their first NBA title in 16 years</h4>
+                            <img src="https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2025-01/Untitled%20design%20-%202025-01-23T084448.687.png?h=99362da5&itok=rveaJpXN" alt="Small News 3" className="small-news-image" />
+                            <h4 className="small-news-description">History repeats itself again: NBA bans Air Jordan's 'banned logo'
+                            </h4>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../Navbar';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import './Players.css';
 import BackToTopButton from './BackToTopButton';
 
@@ -374,22 +375,19 @@ const Players = () => {
           <div className="players-container">
             {teamsData.map((team, index) => (
               <div key={index} className="team-box">
-                <a
-                  href={team.rosterUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="team-link"
-                >
+                <Link to={`/Teams/${team.name.toLowerCase().replace(/ /g, '-')}`} className="team-link">
                   <div className="team-header">
                     <img src={team.logoUrl} alt="Team Logo" className="team-logo" />
                     <h3 className="team-name">{team.name}</h3>
                   </div>
-                </a>
+                </Link>
                 <div className="players-list">
                   {team.players.map((player, idx) => (
                     <div key={idx} className="player">
                       <span className="player-position">{player.position}</span>
-                      <span className="player-name">{player.name}</span>
+                      <Link to={`/Players/${player.name.toLowerCase().replace(/ /g, '-')}`} className="player-name">
+                        {player.name}
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -398,7 +396,7 @@ const Players = () => {
           </div>
           <BackToTopButton />
         </div>
-    );
-};
-
+      );
+    };
+    
 export default Players;

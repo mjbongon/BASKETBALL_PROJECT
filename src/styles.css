@@ -11,13 +11,13 @@
 
 /* Left section (Site title + Links) */
 .nav-left {
-  display: flex;
-  align-items: center;
+  display: flex;          /* Aligns items horizontally */
+  align-items: center;    /* Centers items vertically */
 }
 
 .site-title {
   font-size: 1.5rem;
-  margin-right: -52rem; /* Space between logo and links */
+  margin-right: -32rem;     /* Adds spacing between the site title and the links */
   margin-left: 1rem;
 }
 
